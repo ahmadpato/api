@@ -19,6 +19,6 @@ $router->get('/', function () use ($router) {
 
 $router->get('/article/new', 'ExampleController@getNew');
 $router->get('/article', 'ExampleController@getAll');
-$router->get('/article/newimage', 'ExampleController@getNewImage');
+$router->get('/article/image/new', 'ExampleController@getNewImage');
 $router->get('/article/image', 'ExampleController@getImageAll');
 $router->get('/article/{id}', 'ExampleController@getId');
