@@ -26,6 +26,7 @@ class ExampleController extends Controller
             ->select('id', 'guid','post_status','post_title','post_content')
             ->where('post_status','publish')
             ->orderBy('id', 'DESC')
+            ->take(5)
             ->get()
         );
 
