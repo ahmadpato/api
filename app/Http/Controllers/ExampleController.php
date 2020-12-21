@@ -18,7 +18,7 @@ class ExampleController extends Controller
         //
     }
 
-     public function getAll(){
+    public function getNew(){
         $data = array(
             "status" =>200,
             "response" => "success",
@@ -27,6 +27,20 @@ class ExampleController extends Controller
             ->where('post_status','publish')
             ->orderBy('id', 'DESC')
             ->take(5)
+            ->get()
+        );
+
+        return $data;
+    }
+
+    public function getAll(){
+        $data = array(
+            "status" =>200,
+            "response" => "success",
+            "data" =>DB::table('wp_posts')
+            ->select('id', 'guid','post_status','post_title','post_content')
+            ->where('post_status','publish')
+            ->orderBy('id', 'DESC')
             ->get()
         );
 
@@ -47,7 +61,23 @@ class ExampleController extends Controller
         return $data;
     }
 
-    public function getImage(){
+    public function getNewImage(){
+        $data = array(
+            "status" =>200,
+            "response" => "success",
+            "data" =>DB::table('wp_posts')
+            ->select('id', 'guid','post_status')
+            ->where('guid', 'like', '%https://maungaji.co.id/artikel/wp-content/uploads%')
+            ->where('post_status','inherit')
+            ->orderBy('id', 'DESC')
+            ->take(5)
+            ->get()
+        );
+
+        return $data;
+    }
+
+    public function getImageAll(){
         $data = array(
             "status" =>200,
             "response" => "success",

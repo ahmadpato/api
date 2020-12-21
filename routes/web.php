@@ -17,6 +17,8 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
+$router->get('/article/new', 'ExampleController@getNew');
 $router->get('/article', 'ExampleController@getAll');
-$router->get('/article/image', 'ExampleController@getImage');
+$router->get('/article/newimage', 'ExampleController@getNewImage');
+$router->get('/article/image', 'ExampleController@getImageAll');
 $router->get('/article/{id}', 'ExampleController@getId');
